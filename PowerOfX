@@ -1,0 +1,20 @@
+public class PowerOfX {
+
+  public static void main(String [] args) {
+    int base = 2;
+    int power = -1;
+    System.out.println("Power (  " + base +", "+ power +" )" );
+    System.out.println("value = " + power(base,power));
+  }
+  
+  
+  private static double power(double base, int power) {
+    if(power == 0) {
+        return 1;
+    } else if(power < 0) {
+        return (((double)(1/base)) * power(base, power+1));
+    } else {
+        return (base * power(base, power-1));
+    }
+  }
+}
