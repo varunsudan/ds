@@ -1,7 +1,11 @@
 package com.varun.perm;
 
 import java.util.Arrays;
-
+/**
+ *  Calculate all possible permutations of 
+ *  given input values.
+ * 
+**/
 public class Perm {
 	
 	public static int counter = 1;
