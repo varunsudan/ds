@@ -1,5 +1,8 @@
 package com.varun.recursion;
-
+/**
+ *  Calculate the sum of the first n numbers.
+ *  i.e 1+2+3+4 = 10
+**/
 public class SumOfN {
 
 	public static void main(String [] args) {
