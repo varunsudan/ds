@@ -1,5 +1,9 @@
 import java.util.Arrays;
-
+/**
+ *  Please refer to n- blocking queue problem 
+ *  where in we are looking to place n queens in NxN chess board such that
+ * none of them are blocking each other.
+**/
 public class NQueens {
 	
 	private static int[] columns = null;
