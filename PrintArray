@@ -1,3 +1,7 @@
+/**
+* Recursive method of printing all the elements of array.
+* i/p ---> {a,b,c,d} o/p ---> a,b,c,d 
+**/
 public class PrintArray {
 
     public static void main(String [] args) {
