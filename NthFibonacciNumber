@@ -1,0 +1,15 @@
+public class NthFibonacciNumber {
+
+    public static void main(String [] args) {
+        int nthFibNumber = 1;
+        System.out.println(nthFibNumber + "th fibonacci number = "+fibonacci(nthFibNumber));
+    }
+
+    private static int fibonacci(int nthFibonacciNumber) {
+      if((n == 1) || (n == 2)) {
+          return 1;
+      } else {
+          return (n + fibonacci(n-1));
+      }
+    }
+}
