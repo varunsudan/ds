@@ -1,3 +1,7 @@
+/**
+*  Calculate the factorial of a number through recursive method.
+*  i/p ----> factorial(4) o/p ----> 4*3*2*1 
+**/
 public class Factorial {
 
     public static void main(String [] args) {
