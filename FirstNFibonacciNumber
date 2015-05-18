@@ -1,0 +1,25 @@
+import java.util.List;
+import java.util.ArrayList;
+
+public class FirstNFibonacciNumber {
+
+  public static void main(String [] args) {
+      int firstNFibonacciNumber = 10;
+      List<Integer> numbers = new ArrayList<Integer>();
+      for(int index = 1; index <= firstNFibonacciNumber; index++ ) {
+          numbers.add(nthFibonacciNumber(index));
+      }
+      
+      for(int number : numbers) {
+          System.out.println("-----> " + number);
+      }
+    }
+
+  private static int nthFibonacciNumber(int n) {
+      if((n == 1) || (n == 2)) {
+          return 1;
+      } else {
+          return (nthFibonacciNumber(n-1) + nthFibonacciNumber(n-2));
+      }
+  }
+}
