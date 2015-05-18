@@ -1,3 +1,7 @@
+/**
+* Print the nth Fibonacci Number
+* i/p ---->  5  o/p ---->  5 (i.e 1,1,2,3,5)
+**/
 public class NthFibonacciNumber {
 
     public static void main(String [] args) {
