@@ -1,0 +1,55 @@
+public class Satck {
+    
+    private Integer [] elements = null;
+    private int insertAtPosition = 0;
+    
+    public Stack(final int sizeOfStack) {
+        elements = new Integer[sizeOfStack];
+    }
+
+    public Integer pop() throws EmptyStackException {
+      Integer poppedEle = null;
+      if(insertAtPosition == 0) {
+          throw new EmptyStackException();
+      } else {
+          poppedEle = elements[insertAtPosition];
+          elements[insertAtPosition] = null;
+          --insertAtPosition;
+      }
+      return poppedEle;
+    }
+    
+    public Integer top() throws EmptyStackException {
+      Integer poppedEle = null;
+      if(insertAtPosition == 0) {
+          throw new EmptyStackException();
+      } else {
+          poppedEle = elements[insertAtPosition];
+          elements[insertAtPosition] = null;
+          --insertAtPosition;
+      }
+      return poppedEle;
+    }
+    
+    public void push(int element) throws StackFullException {
+      if(insertAtPosition > (elements.length - 1)) {
+          throw new StackFullException();
+      } else {
+          elements[insertAtPosition++] element;
+      }
+    }
+}
+
+class EmptyStackException extends Exception {
+   private static final EXCEPTION_MESSAGE = "STACK IS EMPTY";
+   public EmptyStackException() {
+      super(EXCEPTION_MESSAGE);
+   }
+}
+
+class StackFullException extends Exception {
+   private static final EXCEPTION_MESSAGE = "STACK IS FULL";
+   public StackFullException() {
+      super(EXCEPTION_MESSAGE);
+   }
+}
