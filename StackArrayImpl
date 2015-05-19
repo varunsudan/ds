@@ -1,3 +1,7 @@
+/**
+*  Create a stack class. The stack is implemented using the 
+*  array. It has user defined fixed size.
+**/
 public class Satck {
     
     private Integer [] elements = null;
@@ -7,36 +11,51 @@ public class Satck {
         elements = new Integer[sizeOfStack];
     }
 
+    /**
+    * Return the top most element and make the space available
+    * for recaputre by setting it explicitly to null.
+    * Throws EmptyStackException if the stack is empty.
+    **/
     public Integer pop() throws EmptyStackException {
-      Integer poppedEle = null;
-      if(insertAtPosition == 0) {
-          throw new EmptyStackException();
-      } else {
-          poppedEle = elements[insertAtPosition];
-          elements[insertAtPosition] = null;
-          --insertAtPosition;
-      }
+      Integer poppedEle = getTopElement();
+      elements[insertAtPosition] = null;
+      insertAtPosition--;
       return poppedEle;
     }
     
+    /**
+    * Just retutn the top most element in the stack.
+    * Throws EmptyStackException if the stack is empty.
+    **/
     public Integer top() throws EmptyStackException {
-      Integer poppedEle = null;
-      if(insertAtPosition == 0) {
-          throw new EmptyStackException();
-      } else {
-          poppedEle = elements[insertAtPosition];
-          elements[insertAtPosition] = null;
-          --insertAtPosition;
-      }
-      return poppedEle;
+        return getTopElement();
     }
     
+    /**
+    * Adds the element to the top of the Stack.
+    * Stack is of fixed userdefined size; 
+    * Throws StackFullException if the stack is full.
+    **/
     public void push(int element) throws StackFullException {
       if(insertAtPosition > (elements.length - 1)) {
           throw new StackFullException();
       } else {
           elements[insertAtPosition++] element;
       }
+    }
+    
+    /**
+    * Method is used get the top most element of the stack.
+    * Throws EmptyStackException.
+    **/
+    private Integer getTopElement() throws EmptyStackException {
+        Integer poppedEle = null;
+        if(insertAtPosition == 0) {
+          throw new EmptyStackException();
+        } else {
+          poppedEle = elements[insertAtPosition];
+        }
+      return poppedEle;
     }
 }
 
