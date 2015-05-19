@@ -2,7 +2,7 @@
 *  Create a stack class. The stack is implemented using the 
 *  array. It has user defined fixed size.
 **/
-public class Satck {
+public class Stack {
     
     private Integer [] elements = null;
     private int insertAtPosition = 0;
