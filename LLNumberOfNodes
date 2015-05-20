@@ -1,0 +1,14 @@
+/**
+*  Count the Number of Nodes in a Linked List
+*  Input is pointer node to the head of the LL.
+**/
+public int numberOfNodesInLinkedList(Node head) {
+  int count = 0;
+  Node current = head;
+  while(current != null) {
+    count++;
+    // this assumes that the node has a method ggetNext() which holds reference to the next node.
+    current = current.getNext(); 
+  }
+  return count;
+}
