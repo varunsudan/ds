@@ -1,0 +1,12 @@
+/**
+* This method is designed to delete all the nodes in linked list
+* i/p -> is the header node to the linked list
+**/
+
+public void deleteAllNodes(Node head) {
+    Node temp = head;
+    while(head != null) {
+      head = head.getNext();
+      temp.setNext(null);
+    }
+}
