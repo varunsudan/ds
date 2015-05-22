@@ -1,0 +1,13 @@
+/**
+* This Program is used to delete a node with given element from an unsorted list
+* intial assumption there is no 
+**/
+public void DeleteGivenNodeFromLinkedList (Node head, int element) {
+
+    Node current = null;
+    Node prev = null;
+
+
+
+
+}
