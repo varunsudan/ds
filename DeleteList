@@ -8,5 +8,6 @@ public void deleteAllNodes(Node head) {
     while(head != null) {
       head = head.getNext();
       temp.setNext(null);
+      temp = head;
     }
 }
