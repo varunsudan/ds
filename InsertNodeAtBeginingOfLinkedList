@@ -1,0 +1,19 @@
+/**
+*  Insert a new node at the beginning of the list.
+**/
+public Node insertNodeAtBeginingOfLinkedList(Node head, int newElement) {
+  
+    Node newNode = new Node(newElement);
+    Node temp = null;
+    
+    // If list is null then this element is the first element
+    if(head == null) {
+        head = newNode;
+    }  else {
+      temp = head;
+      newNode.setNextNode(temp);
+      head = newNode;
+    }
+    
+    return head;
+}
