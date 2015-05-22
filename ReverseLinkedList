@@ -1,1 +1,29 @@
+/**
+* This program is used to reverse a Linked List in place.
+* The space Complexity of the program is O(1)
+* i.e we are not creating a new List to hold teh values
+**/
 
+public Node reverseLinkedList(Node head) {
+  
+  Node current =  head;
+  Node originalTail = null;
+  
+  // Find the tail of the current node
+  while (current != null) {
+      current = current.getNextNode();  
+  }
+  
+  originalTail  = current;
+  
+  Node temp = null;
+  Node newTail = null; 
+  // Loop through the current list till the head reaches the tail node
+  while((head != null) && (head != originalTail)) {
+      temp = head;
+      head = head.getNextNode();
+      temp.setNextNode(newTail);
+      originalTail.setNextNode(temp);
+      newTail = temp;
+   }
+}
