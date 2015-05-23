@@ -1,23 +1,34 @@
 /**
 * This Program is used to delete a node with given element from an unsorted list
-* intial assumption there is no 
+* intial assumption there is no duplicates.
 **/
-public void DeleteGivenNodeFromLinkedList (Node head, int element) {
+public Node DeleteGivenNodeFromLinkedList (Node head, int element) {
 
     Node current = null;
     Node prev = null;
-
+    
+    // If the list is empty - there is nothing to delete
     if(head == null) {
-        return;
+        return head;
     }
     
     current = head;
     
-    while((current != null)) {
-    
-    
-    
+    while((current != null) && (current.getData() != element)) {
+        prev = current;
+        current = current.getNextData();
     }
 
-
+   if(current ==  head) {
+   // If Node to be deleted is at Head 
+        head = current.getNextNode();
+        current.setNextNode(null);
+   } else if(current != null) {
+   // If curent != null the it means the node was found somwhere. 
+   // If current == null then that means the node was not found anywhere.
+        prev.setNextNode(current.getNextNode());
+        current.setNextNode(null);
+   }
+    
+    return head;
 }
