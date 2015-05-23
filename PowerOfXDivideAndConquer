@@ -1,0 +1,23 @@
+/**
+* Calucalte power of X - using divide & conquer.
+* Do it in O(log n)
+**/
+
+public long powerOfXDivideAndConquer(int number, int power) {
+
+    if(power == 0) {
+        return 1;
+    } else {
+      if(power%2 == 0) {
+        return (powerOfXDivideAndConquer(number, power/2) * powerOfXDivideAndConquer(number, power/2));
+      } else {
+       return (number * powerOfXDivideAndConquer(number, power/2) * powerOfXDivideAndConquer(number, power/2));
+      }
+    }
+}
+
+public static void main(String [] args) {
+    int number = 2;
+    int power = 3;
+    System.out.println("power( "+number+", "+ power+" )   value = "+ powerOfXDivideAndConquer(number, power));
+}
