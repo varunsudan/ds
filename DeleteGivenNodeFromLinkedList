@@ -7,7 +7,17 @@ public void DeleteGivenNodeFromLinkedList (Node head, int element) {
     Node current = null;
     Node prev = null;
 
-
+    if(head == null) {
+        return;
+    }
+    
+    current = head;
+    
+    while((current != null)) {
+    
+    
+    
+    }
 
 
 }
