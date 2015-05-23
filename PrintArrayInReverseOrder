@@ -1,0 +1,17 @@
+/**
+*  prints Array in reverse Order.
+* i/p -> {1,2,3,4,5} o/p -> 5, 4, 3, 2, 1
+**/
+public static void main(String [] args) {
+     int [] input = {1, 2, 3, 4, 5};
+    printArrayInReverseOrder(input, input.size() - 1);     
+}
+public void printArrayInReverseOrder(int [] input, int index) {
+  if(index == 0) {
+      System.out.println("  " + input[index]+ "  ");
+      return;
+  } else {
+      System.out.println("  " + input[index]+ "  ");
+      printArrayInReverseOrder(input, index-1);
+  }
+}
