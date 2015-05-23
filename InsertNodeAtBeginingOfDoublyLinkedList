@@ -1,0 +1,19 @@
+/**
+* Always Insert at the begining of the Doubly Linked List
+**/
+
+public Node InsertNodeAtBeginingOfDoublyLinkedList(Node head, int item) {
+  
+  // It is assumned the Node has prev , next pointer &  data elememnt 
+  Node newNode = new Node(item);
+  // If head is null this is the firs node
+  if(head ==  null) {
+    head = newNode;
+  } else {
+  // This is not the first Node . Make it the first Node & Return from here.
+    newNode.setNextNode(head);
+    newNode.setPrevNode(null);
+    head = newNode;
+  }
+  return head;
+}
