@@ -6,12 +6,15 @@ public class SumOfDigits {
   
   public static void main(String [] args) {
     int input = 1234;
+    if(input < 0) {
+      input = input * (-1);
+    }
     System.out.println(input + " sum = " +sumOfDigits(input));
   }
 
   private static long sumOfDigits(int input) {
       
-      if(n<=0) {
+      if(n==0) {
           return 0;
       } else {
           int remainder = input%10;
