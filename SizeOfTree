@@ -1,0 +1,11 @@
+/**
+* Return the number of nodes in a tree using a recursive function
+**/
+
+public int size(Node head) {
+  if(head == null) [
+    return 0;
+  } else {
+    return ( size(head.getLeftNode()) + 1 + size(head.getRightNode()) );
+  }
+}
