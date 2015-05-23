@@ -1,0 +1,11 @@
+/**
+* prints out teh nodes of the tree in order i.e left child, parent node, right child.
+**/
+
+public void inOrderTraversal(Node root) {
+    if(root != null) {
+        inOrderTraversal(root.getLeftChild());
+        System.out.println(root.getData());
+        inOrderTraversal(root.getRightChild());
+    } 
+}
