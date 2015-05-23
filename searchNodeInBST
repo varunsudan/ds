@@ -1,0 +1,18 @@
+/**
+* Seraching for the first occurence of the ele in the BST tree.
+**/ 
+public Node searchNodeInBST(Node root, int ele) {
+    if(root == null) {
+      // root == null is if we ran out of nodes to search or teh tree was empty to begin with.
+      return null;
+    } else if(root.getData() == ele) {
+      // We found the node with the data ele.
+      return root;
+    } else if(ele < root.getData()) {
+      // The ele we are seraching for is in the left subtree.
+      return searchNodeInBST(root.getLeftChild(), ele);
+    }  else  {
+     // The ele we are seraching for is in the right subtree.
+      return searchNodeInBST(root.getRightChild(), ele);
+    }
+}
