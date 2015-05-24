@@ -1,0 +1,13 @@
+/**
+*  PostOrderTraversalBST - recursive method for printing in post order
+* Post Order -> Node->leftChild, Node->rightChild, Node->data
+**/
+
+public void postOrderTraversalBST(Node root) {
+  
+  if(root != null) {
+      postOrderTraversalBST(root.getLeftChild());  
+      postOrderTraversalBST(root.getRightChild()); 
+      System.out.println(" "+ root.getData() +" ");
+  }
+}
