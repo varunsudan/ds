@@ -1,0 +1,18 @@
+/**
+* Find min ele in BST
+**/
+
+public Node minEle(Node root) {
+    // If root is null the tree is empty
+    if(root == null) {
+        return null;
+    }
+    
+    Node current = root;
+    // If there is a left child of the current node keep traversing to the left.
+    while(current.getLeftChild() != null) {
+       current = current.getLeftChild();
+    }
+    // Reyrn the leftmost leaf.
+    return current;
+}
