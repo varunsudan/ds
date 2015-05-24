@@ -1,0 +1,34 @@
+/**
+* BFS for tree - but does not print in level order
+**/
+
+public void BFS(Node root) {
+  
+  // If tree is empty return 
+  if(root == null) {
+    System.out.println("empty tree");
+  }
+  
+  // If tree is not empty intialize the queue with root element
+  Queue<Node> nodeQ = new PriorityQueue<Node>();
+  nodeQ.add(root);
+  
+  // Keep looping till the queue is not empty
+  while(!nodeQ.isEmpty()) {
+     // Print the leme removed from the head of the queue
+     Node temp = nodeQ.remove();
+     System.out.println(" " + temp.getData());
+     
+     // If there is left child present add it to the queue
+     if(temp.getLeftChild() != null) {
+        nodeQ.add(temp.getLeftChild());
+     }
+
+    // If there is right child present add it to the queue
+     if(temp.getRightChild() != null) {
+        nodeQ.add(temp.getRightChild());
+     }
+     
+  }
+
+}
