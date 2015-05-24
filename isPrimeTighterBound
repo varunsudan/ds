@@ -1,0 +1,19 @@
+/**
+* Find if the number is Prime or not - reduce the set of the divisors
+**/
+
+public boolean isPrime(int number) {
+
+  if(number <= 1) {
+    return false;
+  }
+
+  int max = Math.round(Math.sqrt(number));
+  if (int divisor = 2; divisor <= max; divisor++) [
+      if( (number%divisor) == 0) {
+          return false;
+      }
+  }
+
+  return true;
+}
