@@ -1,0 +1,13 @@
+/**
+*  PreOrderTraversalBST - print the pre-order of tree
+*  Print in the following order --> Node , Node->left, Node->right
+**/
+
+public void preOrderTraversalBST(Node root) {
+  
+  if(node != null) {
+      Sytem.out.println(" "+root.getData()+" ");
+      preOrderTraversalBST(root.getLeftChild());
+      preOrderTraversalBST(root.getRightChild());
+  }
+}
