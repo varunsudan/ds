@@ -1,0 +1,24 @@
+/**
+*  Find the Maximum Depth of BST
+**/
+
+public int maxDepth(Node root) {
+    // Termination condition there is no ndoe to traverse
+    if(root == null) {
+      return 0;
+    } else {
+      
+      // Recursvely get the max dept of left subtree
+      int depthOfLeftSubtree =  maxDepth(root.getLeftChild());
+      
+      // Recursvely get the max dept of right subtree
+      int depthOfRightSubtree =  maxDepth(root.getRightChild());
+      
+      // Return 1+ max(depthOfLeftSubtree, depthOfRightSubtree) as the max depth
+      if(depthOfLeftSubtree > depthOfRightSubtree) {
+          return (depthOfLeftSubtree + 1);      
+      } else {
+          return (depthOfRightSubtree + 1);     
+      }
+    }
+}
