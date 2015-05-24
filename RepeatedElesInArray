@@ -1,0 +1,16 @@
+/**
+* Prints out all the repeated ele in Array
+* Time complexity is O(n)
+* Worst case Space Complexity is O(n)
+**/
+
+public void RepeatedElesInArray(int [] input) {
+
+   Set<Integer> uniqueEle = new HashSet<Integer>();
+  
+   for(int index = 0; index < input.size(); index++) [
+      if( !(set.add(input[index]) ) {
+          System.out.println("ele = " + input[index] + "is already present ");
+      }
+   }
+}
