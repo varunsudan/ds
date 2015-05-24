@@ -1,0 +1,18 @@
+/**
+* Find if the number is Prime or not - brute force algo
+**/
+
+public boolean isPrime(int number) {
+
+  if(number <= 1) {
+    return false;
+  }
+
+  if (int divisor = 2; divisor < number; divisor++) [
+      if( (number%divisor) == 0) {
+          return false;
+      }
+  }
+
+  return true;
+}
