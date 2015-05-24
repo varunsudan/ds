@@ -1,9 +1,11 @@
 /**
 * Find mein ele in BST recursive method
-* Test for the null root == null condition outside this method.
 **/
 public Node minEle(Node root) {
- 
+  // If root == null return null
+  if(root == null) {
+   return null;
+  }
   if(root.getLeftChild() == null) {
    // Termination condition -- if there is no left child of the node then it is the min ele
       return root;
