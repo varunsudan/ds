@@ -1,0 +1,29 @@
+/**
+* This method does a Depth First Search for BST
+* input is the root node to BST.
+**/
+
+public void DFSForBST(Node root) {
+  
+  if(root == null) {
+    System.out.println("Tree is empty");
+  }
+  
+  Map<Node, String> visitedNodes = new HashMap<Node, String>();
+  Queue<Node> nodeQueue = new PriorityQueue<Node>();
+  nodeQueue.add(root);
+  
+  while (!nodeQueue.isEmpty()) {
+    Node temp = nodeQueue.remove();
+    System.out.println(" "+ temp.getData());
+    visitedNodes.put(temp, "true");
+      if((temp.getLeftChild() != null)  && (!visitedNodes.getKey(temp.getLeftChild())) ) {
+        nodeQueue.add(temp.getLeftChild());
+        visitedNodes.put(temp.getLeftChild(), "true");
+      } else if ((temp.getRightChild() != null)  && (!visitedNodes.getKey(temp.getRightChild()))) {
+        nodeQueue.add(temp.getRightChild());
+        visitedNodes.put(temp.getRightChild(), "true");
+      }
+  }
+  
+}
