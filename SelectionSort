@@ -1,0 +1,47 @@
+public class SelectionSort {
+
+public static void main(String [] args) {
+
+
+
+}
+
+private static int[] sort(int[] input) {
+
+if(input == null) {
+  // Handle the condition here
+}
+
+int startindex = 0;
+int currrent
+
+while( startIndex < input.length ) {
+
+  int minPos = findPosMinEle(input, startIndex);
+  
+  int temp = input[startIndex];
+  input[startIndex] = input[minPos];
+  input[minPos] = temp;
+  
+  startIndex++;
+
+}
+
+return input;
+}
+
+private static int findPosMinEle(int [] input, int startIndex) {
+    int minElePos = startIndex;
+    
+    for(int i = startIndex+1; i < input.length; i++) {
+   
+        if(input[i] < input[minElePos]) {
+            minElePos = i;
+        }
+ 
+    }
+    
+    return minElePos;
+}
+
+}
