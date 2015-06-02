@@ -10,7 +10,7 @@ private static int[] sort(int[] input) {
 
 if(input == null) {
   // Handle the condition here
-}
+} 
 
 int startindex = 0;
 int currrent
