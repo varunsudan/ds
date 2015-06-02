@@ -1,0 +1,49 @@
+public class MergeSort {
+
+public static void main(String [] args) {
+
+
+}
+
+private static int[] sort(int[] input, int low, int high) {
+
+    if(low == high) {
+        return input;
+    } else {
+      int mid = (low+high) / 2;
+      int [] left =  sort(input, low, mid);
+      int [] right = sort(input, mid+1, high);
+      return merge(left, right);
+    }
+
+}
+
+private static int[] merge(int [] left, int[] right) {
+   
+    int [] result = new int[left.length + right.length];
+    
+    int leftIndex = 0;
+    int rightIndex = 0;
+    int currentIndex = 0;
+    
+    while( (leftIndex < left.length) && (rightIndex < right.length) ) {
+      
+        if( left[leftIndex] <= right[rightIndex] ) {
+            result[currentIndex++] = left[leftIndex++];
+        } else {
+            result[currentIndex++] = right[rightIndex++];
+        }
+    }
+    
+    while( (leftIndex < left.length) ) {
+        result[currentIndex++] = left[leftIndex++];
+    }
+    
+    while( (rightIndex < right.length) ) {
+        result[currentIndex++] = right[rightIndex++];
+    }
+
+    return result;
+}
+
+}
