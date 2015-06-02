@@ -1,0 +1,39 @@
+public class BubbleSort {
+
+    public static void main(String [] args) {
+     int input = {5,4,3,2,1};
+     System.out.println(Arrays.toString(sort(input)));
+    
+    }
+    
+    
+    private static int[] sort(int [] input) {
+    
+    if(input == null) {
+      // throw some error message ;
+    }
+   
+    int lastIndex =  input.length - 1;
+    int startIndex = 0;
+    
+    // In each loop we always make the highest element move to the last index
+    while(lastIndex > 0) {
+      
+      for(int i = 0; i < lastIndex ; i++) {
+        
+        if(input[i] > input[i+1]) {
+            //swap elements
+            int temp = input[i];
+            input[i] = input[i+1];
+            input[i+1] = temp;
+        }
+          
+      }
+      lastIndex--;
+    }
+    
+    return input
+    }
+    
+
+}
