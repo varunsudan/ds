@@ -1,19 +1,30 @@
+import java.util.Arrays;
+
 public class MergeSort {
 
 public static void main(String [] args) {
-
+		
+	 int [] input = {2,1,3,-1,5};
+	// int [] input = {2, 3};
+	System.out.println("Sorted value = "+ Arrays.toString(sort(input, 0, input.length-1)));
 
 }
 
 private static int[] sort(int[] input, int low, int high) {
+	
 
-    if(low == high) {
-        return input;
+    if(low <  high) {
+        int mid = (low+high) / 2;
+        int [] left =  sort(input, low, mid);
+        int [] right = sort(input, mid+1, high);
+        System.out.println(Arrays.toString(left));
+        System.out.println(Arrays.toString(right));
+        return merge(left, right);
+    } else if (low == high){
+    	int [] temp = {input[low]};
+    	return temp;
     } else {
-      int mid = (low+high) / 2;
-      int [] left =  sort(input, low, mid);
-      int [] right = sort(input, mid+1, high);
-      return merge(left, right);
+    	return null;
     }
 
 }
@@ -26,7 +37,8 @@ private static int[] merge(int [] left, int[] right) {
     int rightIndex = 0;
     int currentIndex = 0;
     
-    while( (leftIndex < left.length) && (rightIndex < right.length) ) {
+    while( ( (left != null) && (leftIndex < left.length) ) 
+    		&& ( (right != null) && (rightIndex < right.length) ) ) {
       
         if( left[leftIndex] <= right[rightIndex] ) {
             result[currentIndex++] = left[leftIndex++];
@@ -35,11 +47,11 @@ private static int[] merge(int [] left, int[] right) {
         }
     }
     
-    while( (leftIndex < left.length) ) {
+    while( (left != null) && (leftIndex < left.length) ) {
         result[currentIndex++] = left[leftIndex++];
     }
     
-    while( (rightIndex < right.length) ) {
+    while( (right != null) && (rightIndex < right.length) ) {
         result[currentIndex++] = right[rightIndex++];
     }
 
