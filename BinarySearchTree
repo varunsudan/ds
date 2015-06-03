@@ -1,0 +1,84 @@
+public class BinarySearchTree {
+
+  private TreeNode root;
+  
+  public BinarySearchTree() {
+      root = null;
+  }
+  
+  public void insert(int data) {
+    
+    TreeNode newNode = createNode(data);
+    
+    if(root == null) {
+      root = newNode;
+      return;
+    }
+    
+    TreeNode currentNode = root;
+    TreeNode parentNode = null;
+    
+     while(currentNode != null) {
+         
+         parentNode = currentNode;
+         
+         if(newNode.getData() <= currentNode.getData()) {
+            currentNode = currentNode.getLeftChild();
+         } else {
+            currentNode = currentNode.getRightChild();
+         }
+         
+     }
+     
+     if(newNode.getData() <= currentNode.getData()) {
+        parentNode.setLeftChild(newNode);
+     } else {
+        parentNode.setRightChild(newNode);
+     }
+    
+  }
+  
+  private TreeNode createNode(int data) {
+    
+    TreeNode node = new TreeNode(data);
+    return node;
+  }
+  
+}
+
+class TreeNode {
+
+  ptivate int data;
+  private TreeNode leftChild;
+  private TreeNode rightChild;
+  
+  public TreeNode(int data) [
+    this.data = data;
+    leftChild = null;
+    rightChild = null;
+  }
+  
+  public int getData() {
+    return this.data;
+  }
+  
+  public int setData(int data) {
+    this.data = data;
+  }
+  
+  public TreeNode getLeftChild() {
+    return this.leftChild;
+  }
+  
+  public void setLeftChild(TreeNode leftChild) {
+    this.leftChild = leftChild;
+  }
+  
+  public TreeNode getRightChild() {
+    return this.rightChild;
+  }
+  
+  public void setRightChild(TreeNode rightChild) {
+    this.rightChild = rightChild;
+  }
+}
