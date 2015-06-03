@@ -1,84 +1,174 @@
-public class BinarySearchTree {
+import java.util.LinkedList;
+import java.util.Queue;
 
-  private TreeNode root;
-  
-  public BinarySearchTree() {
-      root = null;
-  }
-  
-  public void insert(int data) {
-    
-    TreeNode newNode = createNode(data);
-    
-    if(root == null) {
-      root = newNode;
-      return;
-    }
-    
-    TreeNode currentNode = root;
-    TreeNode parentNode = null;
-    
-     while(currentNode != null) {
-         
-         parentNode = currentNode;
-         
-         if(newNode.getData() <= currentNode.getData()) {
-            currentNode = currentNode.getLeftChild();
-         } else {
-            currentNode = currentNode.getRightChild();
-         }
-         
-     }
-     
-     if(newNode.getData() <= currentNode.getData()) {
-        parentNode.setLeftChild(newNode);
-     } else {
-        parentNode.setRightChild(newNode);
-     }
-    
-  }
-  
-  private TreeNode createNode(int data) {
-    
-    TreeNode node = new TreeNode(data);
-    return node;
-  }
-  
+public class BinarySearchTree {
+	
+	public static void main(String [] args) {
+		int[] elements = {5,2,7,1,3,6,8};
+		
+		BinarySearchTree bst = new BinarySearchTree();
+		
+		for(int value : elements) {
+			bst.insert(value);
+		}
+		
+		//bst.printInBFS(bst.getRootNode());
+		bst.printLevelWise(bst.getRootNode());;
+	}
+
+	private TreeNode root;
+
+	public BinarySearchTree() {
+		root = null;
+	}
+
+	public void insert(int data) {
+
+		TreeNode newNode = createNode(data);
+
+		if (root == null) {
+			root = newNode;
+			return;
+		}
+
+		TreeNode currentNode = root;
+		TreeNode parentNode = null;
+
+		while (currentNode != null) {
+
+			parentNode = currentNode;
+
+			if (newNode.getData() <= currentNode.getData()) {
+				currentNode = currentNode.getLeftChild();
+			} else {
+				currentNode = currentNode.getRightChild();
+			}
+
+		}
+
+		if (newNode.getData() <= parentNode.getData()) {
+			parentNode.setLeftChild(newNode);
+		} else {
+			parentNode.setRightChild(newNode);
+		}
+
+	}
+	
+	public void printInBFS(TreeNode root) {
+		
+		Queue<TreeNode> nodeQueue = new LinkedList<TreeNode>();
+		
+		if(root != null) {
+			nodeQueue.add(root);
+		}
+		
+		while(!nodeQueue.isEmpty()) {
+
+			TreeNode temp = nodeQueue.remove();
+			System.out.println("node - > " + temp.getData()+ "  ");
+
+			if(temp.getLeftChild() != null) {
+				System.out.println("temp.getLeftChild().getData() " +temp.getLeftChild().getData());
+				nodeQueue.add(temp.getLeftChild());
+			}
+			
+			if(temp.getRightChild() != null) {
+				System.out.println("temp.getRightChild().getData() " +temp.getRightChild().getData());
+				nodeQueue.add(temp.getRightChild());
+			}
+		}
+		
+	}
+	
+	/**
+	 * This method will work only for complete binary tree.
+	 * @param root
+	 */
+	public void printLevelWise(TreeNode root) {
+
+		Queue<TreeNode> nodeQueue = new LinkedList<TreeNode>();
+		
+		if(root != null) {
+			nodeQueue.add(root);
+		}
+		
+		int levelCount = 0;
+		int numberOfNode = 0;
+		String result = "";
+		while(!nodeQueue.isEmpty()) {
+
+			TreeNode temp = nodeQueue.remove();
+			result +=  " ,"+temp.getData() ;
+
+			if(temp.getLeftChild() != null) {
+				nodeQueue.add(temp.getLeftChild());
+			}
+			
+			if(temp.getRightChild() != null) {
+				nodeQueue.add(temp.getRightChild());
+			}
+			
+			numberOfNode++;
+			
+			if (Math.pow(2, levelCount) == numberOfNode) {
+				System.out.println("  ");
+				System.out.println(result);
+				System.out.println("  ");
+				result = "";
+				levelCount++;
+				numberOfNode = 0;
+			} 
+			
+		}
+		
+	}
+
+	
+	public TreeNode getRootNode() {
+		return this.root;
+	}
+
+	private TreeNode createNode(int data) {
+
+		TreeNode node = new TreeNode(data);
+		return node;
+	}
+
 }
 
 class TreeNode {
 
-  ptivate int data;
-  private TreeNode leftChild;
-  private TreeNode rightChild;
-  
-  public TreeNode(int data) [
-    this.data = data;
-    leftChild = null;
-    rightChild = null;
-  }
-  
-  public int getData() {
-    return this.data;
-  }
-  
-  public int setData(int data) {
-    this.data = data;
-  }
-  
-  public TreeNode getLeftChild() {
-    return this.leftChild;
-  }
-  
-  public void setLeftChild(TreeNode leftChild) {
-    this.leftChild = leftChild;
-  }
-  
-  public TreeNode getRightChild() {
-    return this.rightChild;
-  }
-  
-  public void setRightChild(TreeNode rightChild) {
-    this.rightChild = rightChild;
-  }
+	private int data;
+	private TreeNode leftChild;
+	private TreeNode rightChild;
+
+	public TreeNode(int data) {
+		this.data = data;
+		leftChild = null;
+		rightChild = null;
+	}
+
+	public int getData() {
+		return this.data;
+	}
+
+	public void setData(int data) {
+		this.data = data;
+	}
+
+	public TreeNode getLeftChild() {
+		return this.leftChild;
+	}
+
+	public void setLeftChild(TreeNode leftChild) {
+		this.leftChild = leftChild;
+	}
+
+	public TreeNode getRightChild() {
+		return this.rightChild;
+	}
+
+	public void setRightChild(TreeNode rightChild) {
+		this.rightChild = rightChild;
+	}
 }
