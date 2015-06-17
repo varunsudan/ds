@@ -2,14 +2,49 @@
 *  Check if a binary tree is BST recursively
 **/
 public boolean isBST(Node root) {
+  
   // Termination condition - if left & right child are both null then it satisfies the bst proprty
   if((root.getLeftChild() ==  null) && (root.getRightChild() ==  null)) {
       return true;
-  } else if( (root.getLeftChild() != null) && (root.getLeftChild().getData() > root.getData())) {
-      return false;
-  } else if( (root.getRightChild() != null) && (root.getRightChild().getData() < root.getData())) {
-      return false;
-  } else {
-      return( isBST(root.getLeftChild()) && isBST(root.getRightChild()) );
-  }
+  } 
+
+  // If both children exist & they meet the criteria of BST then recursively call isBST on them & 
+  // and their results to get the value.
+  if( 
+      (root.getLeftChild() != null) && (root.getLeftChild().getData() <= root.getData()) 
+      &&
+      (root.getRightChild() != null) && (root.getRightChild().getData() >= root.getData())
+      ) {
+          
+            return ( isBST(root.getLeftChild())  && isBST(root.getRightChild()) );
+            
+        }
+        
+
+  // If only right child exists & it meets the criteria of BST then recursively call isBST on it
+    
+      if( 
+      ( root.getRightChild() != null ) && ( root.getRightChild().getData() >= root.getData() ) 
+      && 
+      ( root.getLeftChild() == null )
+      ) {
+          
+            return ( isBST(root.getRightChild()) );
+            
+        }
+        
+    // If only left child exists & it meets the criteria of BST then recursively call isBST on it          
+      if( 
+      ( root.getLeftChild() != null ) && ( root.getLeftChild().getData() <= root.getData() )
+      &&
+      ( root.getLeftChild() == null )
+      ) {
+          
+            return ( isBST(root.getLeftChild()) );
+            
+        }
+            
+    // If none of the above conditions match then return false.        
+    return false;
+  
 }
